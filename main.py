@@ -45,7 +45,7 @@ if st.button("Get AI Response", use_container_width=True, type="primary"):
         with st.spinner("Thinking... Please wait..."):
             try:
                 # Make the POST request to your FastAPI backend
-                response = requests.post(FASTAPI_URL, json=payload)
+                response = requests.post(f"{FASTAPI_URL}/chat", json=payload)
                 response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
 
                 # Parse the JSON response
