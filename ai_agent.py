@@ -5,8 +5,7 @@ from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage ,SystemMessage
 from pydantic import BaseModel
 from typing import List, Dict, Any
-from fastapi import FastAPI, HTTPException, Request, status
-import uvicorn # Import uvicorn for the main execution block
+from fastapi import FastAPI, HTTPException, Request, status 
 from fastapi.middleware.cors import CORSMiddleware 
 load_dotenv()
 
@@ -63,6 +62,7 @@ def chat_endpoint(request: ChatRequest) -> Dict[str, Any]:
         # Handle any errors during agent execution
         raise HTTPException(status_code=500, detail=f"Agent failed to respond: {e}")
 if __name__ == "__main__":
+    import uvicorn
     port = int(os.getenv("PORT", 8000))
     # This allows you to run the app directly using `python your_backend_file.py`
     # For production, you'd typically use `uvicorn your_backend_file:app --host 0.0.0.0 --port 8000`
