@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import json
 
-FASTAPI_URL = "http://localhost:8000/chat" 
+FASTAPI_URL = "https://python-ai-s8dj.onrender.com" 
 
 st.set_page_config(
     page_title="Dynamic Prompt LangGraph Chat",
