@@ -63,6 +63,7 @@ def chat_endpoint(request: ChatRequest) -> Dict[str, Any]:
         # Handle any errors during agent execution
         raise HTTPException(status_code=500, detail=f"Agent failed to respond: {e}")
 if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
     # This allows you to run the app directly using `python your_backend_file.py`
     # For production, you'd typically use `uvicorn your_backend_file:app --host 0.0.0.0 --port 8000`
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=port)
